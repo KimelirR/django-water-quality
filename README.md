@@ -65,11 +65,28 @@
 [Social-account](https://signup.earthengine.google.com/#!/service_accounts "Register social account email")
 
 
-token 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
+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
 
 > On Ubuntu you need this to install mysqlclient
 ```
 sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+```
+
+## Improved codes on ** on geefunctions.py which is on charts,maps and query **
+
+```python
+ scopes=ee.oauth.SCOPES.append(google_api)) 
+
+ credentials = ee.ServiceAccountCredentials(email=service_account, key_file=privateKey)
+
+
+ from 
+
+ scopes=ee.oauth.SCOPE + ' https://www.googleapis.com/auth/drive ')
+
+ credentials = ee.ServiceAccountCredentials(service_account, privateKey)
+
+
 ```
 
  
