@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block main %}
+<script>
+	const static_url = "{% static '' %}";
+</script>
+<div class="row">
+	<aside class="col-4">
+		<form method="POST">
+			<label for="type"><strong>Geometry type: &nbsp;</strong></label>
+      <select class="form-control mr-2 mb-2 mt-2 form-select form-select-sm mb-1" id="type">
+        <option value="None">None</option>
+        <option value="Point">Point</option>
+        <option value="Polygon">Polygon</option>
+      </select>
+		</form>
+
+		<h3>App Navigation</h3>
+			<div id="map">
+			</div>
+			<form method="POST" id="navpanel" data-datasets="{{ datasets }}">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<label for="charttype"><strong>Chart type: &nbsp; </strong></label>
+	      <select class="form-control mr-2 mb-2 mt-2 form-select form-select-sm mb-1" id="charttype">
+	      	<option value="...">Select Chart Type</option>
+	        <option value="scatter">Scatter Plot</option>
+	        <option value="line">Line Plot</option>
+	      </select>
+		    <label for="navpanel"><strong>Data Select:</strong></label>
+		    <div id="navpanel" data-datasets="{{ datasets }}">
+						<select id="option1" class="form-select form-select-sm mb-1">
+							<option value="...">Select Map Type</option>
+						</select>
+						<select id="option2" class="form-select form-select-sm mb-1">
+							<option value="...">Select a Dataset</option>
+						</select>
+						<select id="option3" class="form-select form-select-sm mb-1">
+							<option value="...">Select a Sensor</option>
+						</select>
+						<select id="option4" class="form-select form-select-sm mb-1">
+							<option value="...">Select a Product</option>
+						</select>
+						<div class="date mt-2">
+							<label for="start_date" class="date"><strong>Start Date:</strong></label>
+							<input id="start_date" type="date" class="form-control buttontheme" >
+							<label for="end_date" class="date"><strong>End Date:</strong></label>
+							<input id="end_date" type="date" class="form-control buttontheme" >
+					  </div>
+				</div>
+				<button id="loadchart" type="submit" class="btn btn-success mt-2 justify-content-between">Load Chart</button>
+				<div id="seriesAdd">
+					<button id="addSeries" type="submit" class="btn btn-success mt-2 justify-content-between">Add Series</button>
+					<button id="addXSeries" type="submit" class="btn btn-success mt-2 justify-content-between">Plot Secondary Series</button>
+					<button id="resetChart" type="submit" class="btn btn-success mt-2 justify-content-between">Reset Chart</button>
+				</div>
+			</form>
+	</aside>
+
+	<section class="col-8">
+		<div id="loader" style="display:none; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); z-index: 88">
+	        <img id="loaderimage" src="{% static 'maps/imgs/loading.gif' %}" />
+	        <p style="text-align:center">
+	            Loading Data
+	        </p>
+    	</div>
+		<div id="container">
+			
+		</div>
+	</section>
+</div>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.8.1/css/ol.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'charts/css/charts.css'%}">
+{% endblock %}
+
+{% block scripts %}
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.7.0/build/ol.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="{% static 'maps/js/ajax.js' %}"></script>
+	<!-- <script type="module" src="{% static 'charts/js/module/high_chart_modules.js' %}"></script> -->
+  <script type="module" src="{% static 'charts/js/charts.js' %}"></script>
+{% endblock %}

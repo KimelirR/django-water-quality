@@ -1,0 +1,9 @@
+.idea
+build/
+dist/
+env/
+django_waterq.egg-info/
+__pycache__/
+db.sqlite3
+*.pyc
+python_project.json

@@ -1,0 +1,75 @@
+# Water-Quality Indicators Monitoring Tool
+
+<!--Unordered lists-->
+* Clone this repository to your computer.
+    ```
+    git clone https://github.com/KimelirR/water-quality-django.git
+    ```
+* Change file directory
+    ```
+     cd water-quality-django
+    ```
+
+* Create .env file 
+    ```
+    pip install virtualenv
+    ```
+    
+* We will name our virtual environment as **_env_**
+   ```
+    python3 -m venv env
+   ```
+
+* Activate virtual environment on linux
+   ```
+    source env/bin/activate
+   ```
+* Install required dependencies through 
+  ```
+   pip install -r requirements.txt
+  ```
+* Migrate databases
+   ```python
+    python3 manage.py makemigrations
+   ```
+   ```python
+    python3 manage.py migrate
+   ```
+
+ > <b>Note!</b>
+  1. Ensure you create SuperUser to manage django admin
+  ```python
+   python3 manage.py createsuperuser
+  ```
+
+> <b>Lastly!  Run your django app </b>
+
+* All the functions and classes are inside src folder.
+
+    ```python
+     python3 manage.py runserver
+    ```
+  
+* In your browser go to address below 
+     [localhost](http://127.0.0.1:8000) 
+
+## Note this and follow the procedure below to get your service account instructions.
+
+
+* [EarthEngine](https://developers.google.com/earth-engine/cloud/earthengine_cloud_project_setup#create-a-cloud-project "Set service account")
+
+* Check as well this 
+[Register For Earth Engine](https://earthengine.google.com/ "Register")
+
+* Register social account email
+[Social-account](https://signup.earthengine.google.com/#!/service_accounts "Register social account email")
+
+
+token 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
+
+> On Ubuntu you need this to install mysqlclient
+```
+sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+```
+
+ 
