@@ -3,20 +3,20 @@
 <!--Unordered lists-->
 * Clone this repository to your computer.
     ```
-    git clone https://github.com/KimelirR/water-quality-django.git
+    git clone https://github.com/KimelirR/django-water-quality.git
     ```
 * Change file directory
     ```
-     cd water-quality-django
+     cd django-water-quality
     ```
 
 * Create .env file 
-    ```
+    ```python
     pip install virtualenv
     ```
     
 * We will name our virtual environment as **_env_**
-   ```
+   ```python
     python3 -m venv env
    ```
 
@@ -25,7 +25,7 @@
     source env/bin/activate
    ```
 * Install required dependencies through 
-  ```
+  ```python
    pip install -r requirements.txt
   ```
 * Migrate databases
