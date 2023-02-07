@@ -72,7 +72,7 @@ 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
 sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
 ```
 
-## Improved codes on ** on geefunctions.py which is on charts,maps and query **
+## Improved codes on **on geefunctions.py which is on charts,maps and query**
 
 ```python
  scopes=ee.oauth.SCOPES.append(google_api)) 
